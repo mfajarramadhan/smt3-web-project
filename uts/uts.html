@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        div.header{
+            background: linear-gradient(rgb(122, 122, 122) 10%, white);
+            height: 140px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+            text-align: center;
+            color: rgb(157, 1, 1);
+            margin-top: -22px;
+            padding: 10px;
+        }
+
+        div.content{
+            display: flex;
+        }
+
+        div.form{
+            width: 85%;
+            box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+        }
+
+        div.form h2{
+            text-align: center;
+            color: rgb(157, 1, 1);
+        }
+
+        div.form table{
+            color: rgb(157, 1, 1);
+        }
+
+        div.field{
+            margin: 10px auto;
+            width: 38%;
+        }
+
+        button{
+            color: rgb(157, 1, 1);
+        }
+
+        div.sidebar{
+            width: 15%;
+            height: 100vh;
+            text-align: center;
+            color: rgb(0, 128, 255);
+            box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+        }
+
+        div.sidebar table{
+            width: 100%;
+            background-color: rgb(213, 198, 156)
+        }
+
+        div.sidebar table tr:hover{
+            color: rgb(0, 26, 255);
+        }
+
+        div.footer{
+            height: 60px;
+            background: linear-gradient(to top, rgb(122, 122, 122), white);
+        }
+        
+        footer{
+            padding: 2px;
+            text-align: center;
+            color: rgb(0, 26, 255);
+        }
+
+        
+    </style>
+</head>
+<body>
+        <div class="header">
+            <h1>UTS Proyek Web</h1>
+        </div>
+        <div class="content">
+            <div class="form">
+                <h2>FORMULIR DATA KECAMATAN</h2>
+                <div class="field">
+                    <table>
+                        <tr>
+                            <td><label for="kode_kecamatan">Kode Kecamatan</label></td>
+                            <td>:</td>
+                            <td><input type="text" name="kode_kecamatan"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="nama_kecamatan">Nama Kecamatan</label></td>
+                            <td>:</td>
+                            <td><input type="text" name="nama_kecamatan"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="ket">Keterangan</label></td>
+                            <td>:</td>
+                            <td><input type="text" name="ket"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button type="submit" name="simpan">Simpan</button>
+                                <button type="submit" name="simpan">Simpan</button>
+                                <button type="submit" name="simpan">Simpan</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="sidebar">
+                <table border="1" cellspacing="0">
+                    <tr>
+                        <td>Beranda</td>
+                    </tr>
+                    <tr>
+                        <td>Menu 1</td>
+                    </tr>
+                    <tr>
+                        <td>Menu 2</td>
+                    </tr>
+                    <tr>
+                        <td>Menu 3</td>
+                    </tr>
+                    <tr>
+                        <td>Menu 4</td>
+                    </tr>
+                    <tr>
+                        <td><img src="" alt=""></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer"></div>
+        <p></p>
+        <footer><i>Disusun oleh Muhammad Fajar Ramadhan</i></footer>
+</body>
+</html>

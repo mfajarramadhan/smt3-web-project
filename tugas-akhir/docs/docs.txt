@@ -1,0 +1,7 @@
+User Akses:
+email: user123@gmail.com
+password: user123
+
+Admin Akses:
+username: adm123
+password: adm321

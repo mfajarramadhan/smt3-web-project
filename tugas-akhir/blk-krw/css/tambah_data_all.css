@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+div.container {
+  display: flex;
+  width: 100%;
+}
+
+div.sub-container {
+  width: 80%;
+  margin-left: 20%;
+}
+
+div.box {
+  width: 98%;
+  margin: 5px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+div.content {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+div.header {
+  margin: 0 0 30px 0;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+div.t_body {
+  overflow: auto;
+  border-radius: 0.6rem;
+}
+
+table {
+  width: 100%;
+  color: white;
+}
+
+table tr {
+  background-color: #003a74;
+}
+
+input {
+  width: 98%;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 3px 6px;
+  margin-top: 3px;
+
+}
+
+td.action_btn {
+  display: flex;
+  justify-content: end;
+}
+
+button {
+  background-color: rgb(84, 84, 247);
+  padding: 3px;
+  height: 25px;
+  color: white;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 80px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003972;
+  color: white;
+  scale: 1.1;
+}
+
+/* Responsive */
+
+/*  Tampilan Mobile */
+@media screen and (max-width: 1080px) {
+  div.sidebar {
+    display: none;
+  }
+
+  div.sub-container {
+    width: 100%;
+    margin-left: 0%;
+  }
+}

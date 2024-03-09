@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerangka</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+
+        div.pilih {
+            width: auto;
+            height: 100px;
+            position: absolute;
+            background-color: lime;
+            visibility: hidden;
+        }
+
+        div.satu {
+            background-color: red;
+            height: 50px;
+        }
+
+        div.dua {
+            background-color: yellow;
+            height: 250px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td {
+            background-color: green;
+            color: yellow;
+        }
+
+        td:hover {
+            background-color: yellow;
+            color: green;
+        }
+    </style>
+</head>
+<script>
+    function test1() {
+        var visible = document.getElementById('d1');
+        var hide = document.getElementById('d2');
+        // visible.classList.toggle('hidden');
+        if (visible.style.visibility == "hidden") {
+            visible.style.visibility = "visible";
+            hide.style.visibility = "hidden";
+        } else {
+            visible.style.visibility = "hidden";
+        }
+    }
+
+    function test2() {
+        if (document.getElementById('d2').style.visibility == "hidden") {
+            document.getElementById('d2').style.visibility = "visible";
+            document.getElementById('d1').style.visibility = "hidden";
+        } else {
+            document.getElementById('d2').style.visibility = "hidden";
+        }
+    }
+
+
+</script>
+
+<body>
+    <center>
+        <div class="satu">
+            <table border="1">
+                <tr>
+                    <td onclick="test1();">
+                        Aku
+                        <div class="pilih" id="d1">DDD</div>
+                    </td>
+                    <td onclick="test2();">
+                        Kamu
+                        <div class="pilih" id="d2">DDD</div>
+                    </td>
+                    <td>Kita</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div class="dua">
+
+        </div>
+    </center>
+</body>
+
+</html>
