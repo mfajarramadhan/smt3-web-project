@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2024 at 09:17 AM
+-- Generation Time: Jul 20, 2024 at 10:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,27 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_peserta`
+-- Table structure for table `peserta`
 --
 
-CREATE TABLE `login_peserta` (
+CREATE TABLE `peserta` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `nohp` varchar(13) NOT NULL,
-  `sandi` varchar(100) NOT NULL
+  `no_telp` varchar(13) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `login_peserta`
+-- Dumping data for table `peserta`
 --
 
-INSERT INTO `login_peserta` (`id`, `nama`, `email`, `nohp`, `sandi`) VALUES
-(1, 'adm123', 'adm@gmail.com', '089533353857', 'adm321'),
-(2, 'Hamba Allah', 'user123@gmail.com', '085612345678', 'user123'),
-(3, 'Hamba Allah', 'user321@gmail.com', '085612340987', 'user321'),
-(4, 'Hamba Allah', 'user111@gmail.com', '081111111111', '123'),
-(5, 'user', 'user123@gmail.com', '089624868771', 'user123');
+INSERT INTO `peserta` (`id`, `nama`, `email`, `no_telp`, `password`) VALUES
+(7, 'Peserta', 'peserta@gmail.com', '089595959595', '$2y$10$01dYfHK6yTqx6I1a5LLpmeJ.E3l8EKVPIAPZhC6IKCQQniuqleJ.q'),
+(8, 'User', 'user@gmail.com', '089999999999', '$2y$10$wAy7Rk5yy4OG64HZXS9yLOGz8Liy2kURViYdaltBChXFFD6pwixue');
 
 -- --------------------------------------------------------
 
@@ -53,6 +50,7 @@ INSERT INTO `login_peserta` (`id`, `nama`, `email`, `nohp`, `sandi`) VALUES
 --
 
 CREATE TABLE `tbl_desa` (
+  `id` int(11) NOT NULL,
   `kode_desa` varchar(10) NOT NULL,
   `nama_desa` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
@@ -63,11 +61,11 @@ CREATE TABLE `tbl_desa` (
 -- Dumping data for table `tbl_desa`
 --
 
-INSERT INTO `tbl_desa` (`kode_desa`, `nama_desa`, `alamat`, `ket`) VALUES
-('3215011005', 'TANJUNGPURA', 'KLARI', 'AKTIF'),
-('3215022003', 'GINTUNG', 'KLARI', 'AKTIF'),
-('3215042004', 'CENGKONG', 'KLARI', 'AKTIF'),
-('3215052002', 'PANCAWATI', 'KLARI', 'AKTIF');
+INSERT INTO `tbl_desa` (`id`, `kode_desa`, `nama_desa`, `alamat`, `ket`) VALUES
+(1, '3215011005', 'TANJUNGPURA', 'KLARI', 'AKTIF'),
+(2, '3215022003', 'GINTUNG', 'KLARI', 'AKTIF'),
+(3, '3215042004', 'CENGKONG', 'KLARI', 'AKTIF'),
+(4, '3215052002', 'PANCAWATI', 'KLARI', 'NON AKTIF');
 
 -- --------------------------------------------------------
 
@@ -76,6 +74,7 @@ INSERT INTO `tbl_desa` (`kode_desa`, `nama_desa`, `alamat`, `ket`) VALUES
 --
 
 CREATE TABLE `tbl_kecamatan` (
+  `id` int(11) NOT NULL,
   `kode_kecamatan` varchar(6) NOT NULL,
   `nama_kecamatan` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
@@ -86,11 +85,11 @@ CREATE TABLE `tbl_kecamatan` (
 -- Dumping data for table `tbl_kecamatan`
 --
 
-INSERT INTO `tbl_kecamatan` (`kode_kecamatan`, `nama_kecamatan`, `alamat`, `ket`) VALUES
-('321501', 'KARAWANG BARAT', 'KARAWANG', 'AKTIF'),
-('321502', 'KARAWANG TIMUR', 'KARAWANG', 'AKTIF'),
-('321505', 'KLARI', 'KARAWANG', 'AKTIF'),
-('321506', 'BATUJAYA', 'KARAWANG', 'AKTIF');
+INSERT INTO `tbl_kecamatan` (`id`, `kode_kecamatan`, `nama_kecamatan`, `alamat`, `ket`) VALUES
+(1, '321501', 'KARAWANG BARAT', 'KARAWANG', 'AKTIF'),
+(2, '321502', 'KARAWANG TIMUR', 'KARAWANG', 'AKTIF'),
+(3, '321505', 'KLARI', 'KARAWANG', 'AKTIF'),
+(4, '321506', 'TELUKJAMBE TIMUR', 'KARAWANG', 'AKTIF');
 
 -- --------------------------------------------------------
 
@@ -99,6 +98,7 @@ INSERT INTO `tbl_kecamatan` (`kode_kecamatan`, `nama_kecamatan`, `alamat`, `ket`
 --
 
 CREATE TABLE `tbl_kejuruan` (
+  `id` int(11) NOT NULL,
   `kode_kejuruan` varchar(6) NOT NULL,
   `kejuruan` varchar(200) NOT NULL,
   `pelatihan` text NOT NULL
@@ -108,11 +108,12 @@ CREATE TABLE `tbl_kejuruan` (
 -- Dumping data for table `tbl_kejuruan`
 --
 
-INSERT INTO `tbl_kejuruan` (`kode_kejuruan`, `kejuruan`, `pelatihan`) VALUES
-('BRS001', 'BARISTA', 'BARISTA KOPI DAN PASTRY'),
-('OTM001', 'OTOMOTIF', 'MEKANIK  JUNIOR SEPEDA MOTOR'),
-('TEI001', 'TEKNIK ELEKTRONIKA', 'TEKNISI AUDIO VIDEO/PLC\r\n'),
-('TIK001', 'DESIGN GRAFIS', 'DESIGN GRAFIS');
+INSERT INTO `tbl_kejuruan` (`id`, `kode_kejuruan`, `kejuruan`, `pelatihan`) VALUES
+(1, 'BRS001', 'BARISTA', 'BARISTA KOPI DAN PASTRY'),
+(2, 'OTM001', 'OTOMOTIF', 'MEKANIK  JUNIOR SEPEDA MOTOR'),
+(3, 'TEI001', 'TEKNIK ELEKTRONIKA', 'TEKNISI AUDIO VIDEO/PLC\r\n'),
+(4, 'TIK001', 'DESIGN GRAFIS', 'DESIGN GRAFIS'),
+(5, 'TIK010', 'WEB PROGRAMMING', 'Website');
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,7 @@ INSERT INTO `tbl_kejuruan` (`kode_kejuruan`, `kejuruan`, `pelatihan`) VALUES
 --
 
 CREATE TABLE `tbl_peserta` (
-  `kode_kejuruan` varchar(6) NOT NULL,
+  `id_kejuruan` int(11) NOT NULL,
   `nik` bigint(16) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `tempat_lahir` varchar(100) NOT NULL,
@@ -133,12 +134,12 @@ CREATE TABLE `tbl_peserta` (
   `no_telp` varchar(14) NOT NULL,
   `email` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
-  `kode_desa` varchar(10) NOT NULL,
-  `kode_kecamatan` varchar(6) NOT NULL,
+  `id_desa` int(11) NOT NULL,
+  `id_kecamatan` int(11) NOT NULL,
   `nama_ortu` varchar(100) NOT NULL,
   `no_ortu` varchar(14) NOT NULL,
   `pendidikan` varchar(100) NOT NULL,
-  `npsn` varchar(8) NOT NULL,
+  `asal_sekolah` varchar(50) NOT NULL,
   `jurusan` varchar(100) NOT NULL,
   `tujuan` varchar(100) NOT NULL,
   `ktp` varchar(100) NOT NULL
@@ -148,11 +149,12 @@ CREATE TABLE `tbl_peserta` (
 -- Dumping data for table `tbl_peserta`
 --
 
-INSERT INTO `tbl_peserta` (`kode_kejuruan`, `nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jk`, `status_nikah`, `tinggi_badan`, `berat_badan`, `no_telp`, `email`, `alamat`, `kode_desa`, `kode_kecamatan`, `nama_ortu`, `no_ortu`, `pendidikan`, `npsn`, `jurusan`, `tujuan`, `ktp`) VALUES
-('TEI001', 3275061210040090, 'AHMAD SOPYAN', 'KARAWANG', '2004-05-11', 'L', 'Belum Menikah', '172', '60', '089624968771', 'ahmadsopyan123@gmail.com', 'JL. TAMELANG, RT/RW 008/006', '3215022003', '321505', 'SUMARNO', '081905085523', 'sma/smk', '20217936', 'TEKNIK ELEKTRONIKA INDUSTRI', 'kerja', '65ec170f2e866.jpeg'),
-('BRS001', 3275062012030002, 'USER', 'KARAWANG', '2004-01-03', 'L', 'Belum Menikah', '175', '63', '089612345678', 'user123@gmail.com', 'JL-KLARI KOSAMBI', '3215052002', '321505', 'ABU BAKAR', '089893849389', 'sma/smk', '20217936', 'TEKNIK ELEKTRONIKA INDUSTRI', 'kerja', '6594d49f7f768.jpeg'),
-('TEI001', 3275062012030022, 'HAMBA ALLAH', 'KARAWANG', '2003-12-20', 'L', 'Belum Menikah', '170', '60', '089533353543', 'hamba@gmail.com', 'JL. KOSAMBI RT/RW 004/006', '3215052002', '321505', 'ABU BAKAR', '089893849389', 'sma/smk', '20217936', 'TEKNIK ELEKTRONIKA INDUSTRI', 'kerja', '65822b1fe7e0f.png'),
-('BRS001', 3275062012030091, 'AISYAH', 'KARAWANG', '2003-12-28', 'P', 'Belum Menikah', '155', '50', '089534560984', 'aisyah@gmail.com', 'JL. KARANGPAWITAN RT/RW 004/006', '3215011005', '321501', 'ABDUL', '089893849320', 'sma/smk', '20217787', 'IPA', 'usaha', '658cd2277d35a.jpg');
+INSERT INTO `tbl_peserta` (`id_kejuruan`, `nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jk`, `status_nikah`, `tinggi_badan`, `berat_badan`, `no_telp`, `email`, `alamat`, `id_desa`, `id_kecamatan`, `nama_ortu`, `no_ortu`, `pendidikan`, `asal_sekolah`, `jurusan`, `tujuan`, `ktp`) VALUES
+(1, 1234567891040001, 'Azza', 'Karawang', '2024-06-12', 'P', 'Belum Menikah', '160', '50', '08123456678', 'azza@gmail.com', 'karawang', 1, 2, 'abc', '12345678', 'strata', 'karawang', 'barista', 'usaha', ''),
+(1, 3275061210040090, 'AHMAD SOPYAN', 'KARAWANG', '2004-05-11', 'L', 'Belum Menikah', '172', '60', '089624968771', 'ahmadsopyan123@gmail.com', 'JL. TAMELANG, RT/RW 008/006', 1, 1, 'SUMARNO', '081905085523', 'sma/smk', '20217936', 'TEKNIK ELEKTRONIKA INDUSTRI', 'kerja', '65ec170f2e866.jpeg'),
+(0, 3275062012030002, 'FULAN', 'KARAWANG', '2004-01-03', '', '', '175', '63', '089612345678', 'user123@gmail.com', 'JL-KLARI KOSAMBI', 0, 0, 'ABU BAKAR', '089893849389', 'sma/smk', '20217936', 'TEKNIK ELEKTRONIKA INDUSTRI', 'kerja', ''),
+(3, 3275062012030022, 'HAMBA ALLAH', 'KARAWANG', '2003-12-20', 'L', 'Belum Menikah', '170', '60', '089533353543', 'hamba@gmail.com', 'JL. KOSAMBI RT/RW 004/006', 3, 3, 'ABU BAKAR', '089893849389', 'sma/smk', '20217936', 'TEKNIK ELEKTRONIKA INDUSTRI', 'kerja', '65822b1fe7e0f.png'),
+(4, 3275062012030091, 'AISYAH', 'KARAWANG', '2003-12-28', 'P', 'Belum Menikah', '155', '50', '089534560984', 'aisyah@gmail.com', 'JL. KARANGPAWITAN RT/RW 004/006', 4, 4, 'ABDUL', '089893849320', 'sma/smk', '20217787', 'IPA', 'usaha', '658cd2277d35a.jpg');
 
 -- --------------------------------------------------------
 
@@ -192,46 +194,47 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_admin`, `nama`, `username`, `password`) VALUES
-(1, 'ADMIN', 'adm123', '$2y$10$p.4ym6KDtD.xFW0WE2GvzO86R5srAyu6vvqXbE21fad8nj0TC2Ipy'),
-(2, 'ADMIN2', 'adm321', '$2y$10$zWR9528skLujhpO3C.Kck.TqimVu7nfBQVnxz7dEqQl/y.UU1DbE.');
+(4, 'Fajar', 'fajar123', 'fajar123'),
+(7, 'Hanif', 'hanif123', 'hanif123'),
+(9, 'Diva', 'diva123', 'diva123'),
+(14, 'Ayu', 'ayu321', 'ayu'),
+(20, 'Admin1', 'adm123', '$2y$10$9gwj/pE9YL41mXqSH7H7l.l0EWRD8sOirLIulC3lBZHolCyKdH0Xm'),
+(21, 'Tian', 'tian123', 'tian123'),
+(26, 'bb', 'adaaii', 'ccca');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `login_peserta`
+-- Indexes for table `peserta`
 --
-ALTER TABLE `login_peserta`
+ALTER TABLE `peserta`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_desa`
 --
 ALTER TABLE `tbl_desa`
-  ADD PRIMARY KEY (`kode_desa`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
-  ADD PRIMARY KEY (`kode_kecamatan`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_kejuruan`
 --
 ALTER TABLE `tbl_kejuruan`
-  ADD PRIMARY KEY (`kode_kejuruan`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_peserta`
 --
 ALTER TABLE `tbl_peserta`
-  ADD PRIMARY KEY (`nik`),
-  ADD KEY `kode_desa` (`kode_desa`),
-  ADD KEY `kode_kecamatan` (`kode_kecamatan`),
-  ADD KEY `id_kejuruan` (`kode_kejuruan`),
-  ADD KEY `npsn` (`npsn`);
+  ADD PRIMARY KEY (`nik`);
 
 --
 -- Indexes for table `tbl_sekolah`
@@ -250,29 +253,34 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `login_peserta`
+-- AUTO_INCREMENT for table `peserta`
 --
-ALTER TABLE `login_peserta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `peserta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tbl_desa`
+--
+ALTER TABLE `tbl_desa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `tbl_kecamatan`
+--
+ALTER TABLE `tbl_kecamatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `tbl_kejuruan`
+--
+ALTER TABLE `tbl_kejuruan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `tbl_peserta`
---
-ALTER TABLE `tbl_peserta`
-  ADD CONSTRAINT `tbl_peserta_ibfk_2` FOREIGN KEY (`kode_desa`) REFERENCES `tbl_desa` (`kode_desa`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_peserta_ibfk_3` FOREIGN KEY (`kode_kecamatan`) REFERENCES `tbl_kecamatan` (`kode_kecamatan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_peserta_ibfk_4` FOREIGN KEY (`npsn`) REFERENCES `tbl_sekolah` (`npsn`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_peserta_ibfk_5` FOREIGN KEY (`kode_kejuruan`) REFERENCES `tbl_kejuruan` (`kode_kejuruan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

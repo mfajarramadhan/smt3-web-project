@@ -1,27 +1,27 @@
-<?php 
-    session_start();
-    require 'function.php';
-    if(isset($_SESSION["login"])){
-        header("location: data_peserta.php");
-        exit;
-    }
+<?php
+session_start();
+require 'function.php';
+if (isset($_SESSION["login"])) {
+    header("location: data_peserta.php");
+    exit;
+}
 
-    if(isset($_POST["login"])){
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+if (isset($_POST["login"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-        // Cek seluruh username dan dimasukkan kedalam variabel $result
-        $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
-        
-        // Cek username
-        if(mysqli_num_rows($result) === 1){
+    // Cek seluruh username dan dimasukkan kedalam variabel $result
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
 
-            // cek password berdasarkan username
-            $row = mysqli_fetch_assoc($result);
-            if (password_verify($password, $row["password"])){
+    // Cek username
+    if (mysqli_num_rows($result) === 1) {
+
+        // cek password berdasarkan username
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
 
             $_SESSION["login"] = true;
-            echo"
+            echo "
                 <script>
                     window.location = 'data_peserta.php';
                 </script>
@@ -29,22 +29,23 @@
 
             exit;
             // menghentikan kode ketika password tidak sesuai
-            }
         }
-        echo"
+    }
+    echo "
             <script>
                 alert('username/password salah');
             </script>
             ";
-        
-        // error diletakkan diluar if untuk di eksekusi ketika tidak ada baris yg dikembalikan didalam database
-    }
-    
+
+    // error diletakkan diluar if untuk di eksekusi ketika tidak ada baris yg dikembalikan didalam database
+}
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,45 +97,43 @@
         .login-container button:hover {
             background-color: #45a049;
         }
-        
-        .login-container li{
+
+        .login-container li {
             list-style: none;
             text-align: left;
         }
 
-        .login-container li:nth-child(3){
+        .login-container li:nth-child(3) {
             display: flex;
             justify-content: center;
-            alogn-items: center;
+            align-items: center;
+        }
+
+        ul li {
+            margin-left: -40px;
         }
     </style>
 </head>
+
 <body>
     <div class="login-container">
-    <h2>Login</h2>
-    <form action="" method="post">
-        <ul>
-            <li>
-                <label for="username">Username :</label>
-                <input type="text" name="username" id="username" autofocus required>
-            </li>
-            <li>
-                <label for="password">Password :</label>
-                <input type="password" name="password" id="password" required>
-            </li>
-            <li>
-                <button type="submit" name="login">Login</button>
-            </li>
-        </ul>
-    </form>
-    username : adm123 <br> password : adm321
+        <h2>Login</h2>
+        <form action="" method="post">
+            <ul>
+                <li>
+                    <label for="username">Username :</label>
+                    <input type="text" name="username" id="username" autofocus required>
+                </li>
+                <li>
+                    <label for="password">Password :</label>
+                    <input type="password" name="password" id="password" required>
+                </li>
+                <li>
+                    <button type="submit" name="login">Login</button>
+                </li>
+            </ul>
+        </form>
     </div>
 </body>
+
 </html>
-
-
-
-
-
-
-
